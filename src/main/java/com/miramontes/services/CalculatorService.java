@@ -15,5 +15,15 @@ public class CalculatorService {
                 );
     }
 
+    public static Long subtract(List<Integer> numbers) {
+        List<Integer> filtered =
+                numbers
+                        .stream()
+                        .filter(Objects::nonNull)
+                        .collect(Collectors.toList());
+        if(filtered.isEmpty()){return 0l;}
+        Integer start = filtered.remove(0);
+        return filtered.stream().mapToLong(Integer::longValue).reduce(start, (a, b) -> a - b);
+    }
 
 }

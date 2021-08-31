@@ -40,4 +40,11 @@ public class CalculatorResource {
         }
     }
 
+    @GET
+    @Timed
+    @Path("/subtract/{numbers:.*}")
+    public Long subtract(@PathParam("numbers") @DefaultValue("0") String numbers){
+        return CalculatorService.subtract(parseNumbers(numbers));
+    }
+
 }
