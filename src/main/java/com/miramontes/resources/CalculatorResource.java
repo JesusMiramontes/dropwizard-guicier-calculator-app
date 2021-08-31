@@ -16,6 +16,11 @@ import java.util.stream.Collectors;
 @Produces(MediaType.TEXT_PLAIN)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CalculatorResource {
+
+    @Inject
+    public CalculatorResource() {
+    }
+
     @GET
     @Timed
     @Path("/add/{numbers:.*}")
