@@ -2,6 +2,7 @@ package com.miramontes.modules;
 
 import com.google.inject.Binder;
 import com.hubspot.dropwizard.guicier.DropwizardAwareModule;
+import com.miramontes.CalculatorHealthCheck;
 import com.miramontes.config.CalculatorConfiguration;
 import com.miramontes.resources.CalculatorResource;
 
@@ -9,5 +10,6 @@ public class CalculatorModule extends DropwizardAwareModule<CalculatorConfigurat
     @Override
     public void configure(Binder binder) {
         binder.bind(CalculatorResource.class);
+        binder.bind(CalculatorHealthCheck.class);
     }
 }
