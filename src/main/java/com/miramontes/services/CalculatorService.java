@@ -26,4 +26,15 @@ public class CalculatorService {
         return filtered.stream().mapToLong(Integer::longValue).reduce(start, (a, b) -> a - b);
     }
 
+    public static Long multiply(List<Integer> numbers) {
+        List<Integer> filtered = numbers.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        if (filtered.isEmpty()) {
+            return 0l;
+        }
+        return filtered.stream()
+                .mapToLong(Integer::longValue)
+                .reduce(1, (a, b) -> a * b);
+    }
 }

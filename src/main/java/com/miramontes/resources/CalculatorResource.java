@@ -47,4 +47,10 @@ public class CalculatorResource {
         return CalculatorService.subtract(parseNumbers(numbers));
     }
 
+    @GET
+    @Timed
+    @Path("/multiply/{numbers:.*}")
+    public Long multiply(@PathParam("numbers") @DefaultValue("0") String numbers){
+        return CalculatorService.multiply(parseNumbers(numbers));
+    }
 }
